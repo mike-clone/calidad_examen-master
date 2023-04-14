@@ -6,13 +6,13 @@ namespace FinanceApp.web.Validators;
 public class TransaccionValidator
 {
     /* la categoria debe existir en la base de datos */
-    public bool hasValidCategory(DbEntities entities, Transaccion transaccion)
+    public static bool HasValidCategory(DbEntities entities, Transaccion transaccion)
     {
         return entities.Categorias.Any(o => o.Id == transaccion.CategoryId);
     }
     
     /* si la categoria es INGRESO, el monto debe ser positivo, si es EGRESO debe ser negativo*/
-    public bool isValidAmountBasedCategory(DbEntities entities,Transaccion transaccion)
+    public static bool IsValidAmountBasedCategory(DbEntities entities,Transaccion transaccion)
     {
         var category = entities.Categorias.FirstOrDefault(o => o.Id == transaccion.CategoryId);
         if (category == null) return false;

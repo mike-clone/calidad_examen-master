@@ -16,4 +16,5 @@ public static class CategoriaValidator
     {
         return VALID_CATEGORY_TYPES.Contains(categoria.Tipo);
     }
+
 }
